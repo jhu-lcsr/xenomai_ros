@@ -2,7 +2,7 @@
   <name>xenomai_ros</name>
   <version>0.1.0</version>
   <description>Tools for building real-time applications with Xenomai.</description>
-  <maintainer email="">Jonathan Bohren</maintainer>
+  <maintainer email="jbo@jhu.edu">Jonathan Bohren</maintainer>
 
   <license>BSD</license>
 

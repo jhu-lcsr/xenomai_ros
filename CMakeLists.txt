@@ -1,6 +1,6 @@
 # http://ros.org/doc/groovy/api/catkin/html/user_guide/supposed.html
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_xenomai)
+project(xenomai_ros)
 
 # Load catkin and all dependencies required for this package
 # TODO: remove all from COMPONENTS that are not catkin packages.
@@ -18,6 +18,5 @@ catkin_package(
 # Install the Xenomai cmake config
 install(FILES cmake/FindXenomai.cmake
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake
-  USE_SOURCE_PERMISSIONS
 )
 

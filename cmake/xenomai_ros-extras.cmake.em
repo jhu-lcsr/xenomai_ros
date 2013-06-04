@@ -15,7 +15,7 @@ macro(add_xenomai_flags)
 
   # Add libraries
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${Xenomai_LDFLAGS_NATIVE}")
-endmacro(rosbuild_add_xenomai_flags)
+endmacro(add_xenomai_flags)
 
 # Macto to add the xenomai flags with the posix wrappers
 macro(add_xenomai_posix_flags)
