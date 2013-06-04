@@ -1,10 +1,13 @@
 
-# Add cmake module path
-list(APPEND CMAKE_MODULE_PATH ${rosbuild_xenomai_PACKAGE_PATH})
-
 # Find the Xenomai package
+@[if DEVELSPACE]@
+#list(APPEND CMAKE_MODULE_PATH ${xenomai_ros_PACKAGE_PATH})
+find_package(Xenomai REQUIRED PATHS "@(CMAKE_CURRENT_SOURCE_DIR)/cmake" NO_DEFAULT_PATH)
+@[else]@
 find_package(Xenomai REQUIRED)
+@[end if]@
 
+# Macro to add the native xenomai flags
 macro(add_xenomai_flags)
   add_definitions(${Xenomai_DEFINITIONS})
   link_directories(${Xenomai_LIBRARY_DIRS})
@@ -14,6 +17,7 @@ macro(add_xenomai_flags)
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${Xenomai_LDFLAGS_NATIVE}")
 endmacro(rosbuild_add_xenomai_flags)
 
+# Macto to add the xenomai flags with the posix wrappers
 macro(add_xenomai_posix_flags)
   add_definitions(${Xenomai_DEFINITIONS_POSIX})
   link_directories(${Xenomai_LIBRARY_DIRS})
@@ -23,6 +27,7 @@ macro(add_xenomai_posix_flags)
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${Xenomai_LDFLAGS_POSIX}")
 endmacro(add_xenomai_posix_flags)
 
+# Macro to link against the xenomai libraries
 #macro(target_link_xenomai ... )
 #  if(Xenomai_FOUND)
 #    foreach(lib_name IN ${ARGV})
