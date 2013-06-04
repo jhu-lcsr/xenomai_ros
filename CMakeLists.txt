@@ -16,7 +16,7 @@ catkin_package(
 )
 
 # Install the Xenomai cmake config
-install(FILES cmake/FindXenomai.cmake
+install(FILES cmake/XenomaiConfig.cmake
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake
 )
 
