@@ -2,10 +2,12 @@
 # Find the Xenomai package
 @[if DEVELSPACE]@
 #list(APPEND CMAKE_MODULE_PATH ${xenomai_ros_PACKAGE_PATH})
-find_package(Xenomai REQUIRED PATHS "@(CMAKE_CURRENT_SOURCE_DIR)/cmake" NO_DEFAULT_PATH)
+find_package(Xenomai PATHS "@(CMAKE_CURRENT_SOURCE_DIR)/cmake" NO_DEFAULT_PATH)
 @[else]@
-find_package(Xenomai REQUIRED)
+find_package(Xenomai )
 @[end if]@
+
+set(Xenomai_FOUND ${XENOMAI_FOUND})
 
 # Macro to add the native xenomai flags
 macro(add_xenomai_flags)
