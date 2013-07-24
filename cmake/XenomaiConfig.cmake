@@ -12,26 +12,27 @@
 if( UNIX )
 
   # set the search paths
-  set( Xenomai_SEARCH_PATH /usr/local/xenomai /usr/xenomai /usr/include/xenomai $ENV{XENOMAI_ROOT_DIR})
+  set( Xenomai_SEARCH_PATH /usr/local /usr $ENV{XENOMAI_ROOT_DIR})
   
-  # find xeno-config.h
-  find_path( Xenomai_ROOT_DIR
-    include/xeno_config.h 
+  # find xeno_config.h
+  find_path( Xenomai_INCLUDE_DIR
+    xeno_config.h 
     PATHS ${Xenomai_SEARCH_PATH} 
+    PATH_SUFFIXES xenomai include xenomai/include include/xenomai
     )
 
   # did we find xeno_config.h?
-  if(Xenomai_ROOT_DIR) 
-    MESSAGE(STATUS "xenomai found: \"${Xenomai_ROOT_DIR}\"")
+  if(Xenomai_INCLUDE_DIR) 
+    MESSAGE(STATUS "xenomai found: \"${Xenomai_INCLUDE_DIR}\"")
     
-    # set the include directory
-    if( "${Xenomai_ROOT_DIR}" MATCHES "/usr/include/xenomai" )
+    # set the root directory
+    if( "${Xenomai_INCLUDE_DIR}" MATCHES "/usr/include/xenomai" )
       # on ubuntu linux, xenomai install is not rooted to a single dir
-      set( Xenomai_INCLUDE_DIR ${Xenomai_ROOT_DIR} )
-      set( Xenomai_INCLUDE_POSIX_DIR ${Xenomai_ROOT_DIR}/posix )
+      set( Xenomai_ROOT_DIR /usr)
+      set( Xenomai_INCLUDE_POSIX_DIR ${Xenomai_INCLUDE_DIR}/posix )
     else()
       # elsewhere, xenomai install is packaged
-      set( Xenomai_INCLUDE_DIR ${Xenomai_ROOT_DIR}/include )
+      get_filename_component(Xenomai_ROOT_DIR ${Xenomai_INCLUDE_DIR} PATH)
       set( Xenomai_INCLUDE_POSIX_DIR ${Xenomai_ROOT_DIR}/include/posix )
     endif()
     
