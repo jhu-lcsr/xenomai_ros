@@ -50,7 +50,7 @@ if( UNIX )
     set(Xenomai_LDFLAGS_POSIX "-Wl,@${Xenomai_ROOT_DIR}/lib/posix.wrappers")#-lpthread_rt -lxenomai -lpthread -lrt")
 
     # add compile/preprocess options
-    set(Xenomai_DEFINITIONS -D_GNU_SOURCE -D_REENTRANT -Wall -pipe -D__XENO__)
+    set(Xenomai_DEFINITIONS -D_GNU_SOURCE -D_REENTRANT -pipe -D__XENO__)
     set(Xenomai_DEFINITIONS_POSIX ${Xenomai_DEFINITIONS})
 
 
