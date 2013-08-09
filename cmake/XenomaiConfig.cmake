@@ -40,6 +40,7 @@ if( UNIX )
     find_library( Xenomai_LIBRARY_XENOMAI xenomai ${Xenomai_ROOT_DIR}/lib )
     find_library( Xenomai_LIBRARY_PTHREAD_RT pthread_rt rtdm ${Xenomai_ROOT_DIR}/lib )
     find_library( Xenomai_LIBRARY_RTDM    rtdm    ${Xenomai_ROOT_DIR}/lib )
+    find_library( Xenomai_LIBRARY_RTDK    rtdk    ${Xenomai_ROOT_DIR}/lib )
 
     # Find xeno-config
     find_program(Xenomai_XENO_CONFIG NAMES xeno-config  PATHS ${Xenomai_ROOT_DIR}/bin NO_DEFAULT_PATH)
@@ -70,4 +71,5 @@ find_package_handle_standard_args(Xenomai DEFAULT_MSG
   Xenomai_LIBRARY_XENOMAI
   Xenomai_LIBRARY_PTHREAD_RT
   Xenomai_LIBRARY_RTDM
+  Xenomai_LIBRARY_RTDK
   )
